@@ -3,6 +3,7 @@ import { useSession } from "next-auth/react";
 import { GetServerSideProps } from "next";
 import Head from "next/head";
 import styles from "./styles.module.css";
+import { FaTrash } from "react-icons/fa";
 
 import { db } from "../../services/firebaseConnection";
 import {
@@ -38,10 +39,9 @@ interface CommentProps{
 
 export default function Task({ item, allComments }: TaskProps) {
   const { data: session } = useSession();
-
   const [input, setInput] = useState("");
+  const [comments, setComments] = useState<CommentProps[]>(allComments || []);
 
-  const [comments, setComments] = useState<CommentProps[]>(allComments || [])
 
   async function handleComment(event: FormEvent) {
     event.preventDefault();
@@ -59,6 +59,15 @@ export default function Task({ item, allComments }: TaskProps) {
         taskId: item?.taskId,
       });
 
+      const data = {
+        id: docRef.id,
+        comment: input,
+        user: session?.user?.email,
+        name: session?.user?.name,
+        taskId: item?.taskId,
+      };
+
+      setComments((oldItems) => [...oldItems, data]);
       setInput("");
     } catch (err) {
       console.log(err);
@@ -103,6 +112,14 @@ export default function Task({ item, allComments }: TaskProps) {
 
         {comments.map((item) => (
           <article key={item.id} className={styles.comment}>
+            <div className={styles.headComment}>
+              <label className={styles.commentsLabel}>{item.name}</label>
+              {item.user === session?.user?.email && (
+                <button className={styles.buttonTrash}>
+                  <FaTrash size={18} color="#EA3140" />
+                </button>
+                )}
+            </div>
             <p>{item.comment}</p>
           </article>
         ))}
