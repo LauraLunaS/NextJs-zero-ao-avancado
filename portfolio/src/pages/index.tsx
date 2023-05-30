@@ -1,16 +1,31 @@
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-
-const inter = Inter({ subsets: ['latin'] })
+import Head from 'next/head';
+import styles from '../styles/home.module.scss';
 
 export default function Home() {
   return (
-    <main
-      className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
-    >
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <h1>Hello World</h1>
+   <>
+    <Head>
+      <title>Apaixonado por tecnologia - Sujeito Programador</title>
+    </Head>
+    <main className={styles.container}>
+      <div className={styles.containerHeader}>
+        <section className={styles.ctaText}>
+          <h1>Levando você ao próximo nível!</h1>
+          <span>Uma plataforma com cursos que vão do zero até o profissional na pratica, direto ao ponto aplicando o que usamos no mercado de trabalho. 👊</span>
+          <a>
+            <button>
+              COMEÇAR AGORA!
+            </button>
+          </a>
+        </section>
+
+        <img 
+            src="/images/banner-conteudos.png" 
+            alt="Conteúdos Sujeito Programador" 
+        />
       </div>
     </main>
+   </>
   )
 }
+
