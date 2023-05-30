@@ -11,7 +11,7 @@ export default function Home() {
       <div className={styles.containerHeader}>
         <section className={styles.ctaText}>
           <h1>Levando você ao próximo nível!</h1>
-          <span>Uma plataforma com cursos que vão do zero até o profissional na pratica, direto ao ponto aplicando o que usamos no mercado de trabalho. 👊</span>
+          <span>Uma plataforma com cursos que vão do zero até o profissional na pratica, direto ao ponto aplicando o que usamos no mercado de trabalho. </span>
           <a>
             <button>
               COMEÇAR AGORA!
@@ -20,10 +20,35 @@ export default function Home() {
         </section>
 
         <img 
-            src="/images/banner-conteudos.png" 
+            src="/images/mockup.png" 
             alt="Conteúdos Sujeito Programador" 
+            className={styles.img}
         />
       </div>
+
+      <hr className={styles.divisor} />
+
+      <div className={styles.sectionContent}>
+        <section>
+          <h2>Aprenda criar aplicativos para Android e iOS</h2>
+          <span>Você vai descobrir o jeito mais moderno de desenvolver apps nativos para iOS e Android, construindo aplicativos do zero até aplicativos.</span>
+        </section>
+
+        <img src="/images/financasApp.png" alt="Conteúdos desenvolvimento de apps" />
+      </div>
+
+      <hr className={styles.divisor} />
+
+      <div className={styles.sectionContent}>
+        <img src="/images/webDev.png" alt="Conteúdos desenvolvimento de aplicacoes web" />
+
+        <section>
+          <h2>Aprenda criar sistemas web</h2>
+          <span>Criar sistemas web, sites usando as tecnologias mais modernas e requisitadas pelo mercado.</span>
+        </section>
+        </div>
+
+
     </main>
    </>
   )
