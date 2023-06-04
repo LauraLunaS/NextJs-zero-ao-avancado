@@ -1,33 +1,37 @@
-import styles from './style.module.scss'
-import Image from 'next/image'
-import logo from '../../../public/images/logo.svg'
 
-import { ActiveLink } from '../ActiveLink'
+import styles from './styles.module.scss';
+import Image from 'next/image';
+import logo from '../../../public/images/logo.svg';
 
-export function Header() {
-    return(
-        <header className={styles.headerContainer}>
-            <div className={styles.headerContent}>
-                
-                <a>
-                    <Image src={logo} alt="logo" />
-                </a>
-                <nav>
-                    <ActiveLink href="/" activeClassName={styles.active}>
-                        <p>Home</p>
-                    </ActiveLink>
+import { ActiveLink } from '../ActiveLink';
 
-                    <ActiveLink  href="/posts" activeClassName={styles.active}>
-                        <p>Conteúdos</p>
-                    </ActiveLink>
+export function Header(){
+  return(
+    <header className={styles.headerContainer}>
+      <div className={styles.headerContent}>
+        <ActiveLink href="/" activeClassName={styles.active} legacyBehavior>
+          <a>
+           <Image src={logo} alt="Sujeito Programador Logo"/>
+          </a>
+        </ActiveLink>
 
-                    <ActiveLink  href="/sobre" activeClassName={styles.active}>
-                        <p>Quem somos?</p>
-                    </ActiveLink>
-                </nav>
+        <nav>
+          <ActiveLink href="/" activeClassName={styles.active} legacyBehavior>
+            <a>Home</a>
+          </ActiveLink>
 
-                <a className={styles.readyButton} type="button" href="https://github.com/LauraLunaS">Começar</a>
-            </div>
-        </header>
-    )
+          <ActiveLink  href="/posts" activeClassName={styles.active} legacyBehavior>
+            <a>Conteúdos</a>
+          </ActiveLink>
+
+          <ActiveLink  href="/sobre" activeClassName={styles.active} legacyBehavior>
+            <a>Quem somos?</a>
+          </ActiveLink>
+        </nav>
+
+        <a className={styles.readyButton} type="button" href="https://sujeitoprogramador.com">COMEÇAR</a>
+
+      </div>
+    </header>
+  )
 }

@@ -1,11 +1,11 @@
 
 import Head from 'next/head';
 
-import style from './style.module.scss';
+import styles from './styles.module.scss';
 import Link from 'next/link';
 
 import Image from 'next/image';
-import thumb from '../../../public/images/thumb.png';
+import thumbImg from '../../../public/images/thumb.png';
 
 import { FiChevronLeft, FiChevronsLeft, FiChevronRight, FiChevronsRight} from 'react-icons/fi';
 
@@ -15,12 +15,12 @@ export default function Posts(){
      <Head>
        <title>Blog | Sujeito Programador</title>
      </Head>
-     <main className={style.container}>
-       <div className={style.posts}>
-         <Link href="/" legacyBehavior>
+     <main className={styles.container}>
+       <div className={styles.posts}>
+         <Link href="/">
           <a>
             <Image 
-              src={thumb} 
+              src={thumbImg} 
               alt="Post titulo 1"
               width={720}
               height={410}
@@ -32,7 +32,7 @@ export default function Posts(){
           </a>
          </Link>
 
-         <div className={style.buttonNavigate}>
+         <div className={styles.buttonNavigate}>
             <div>
               <button>
                 <FiChevronsLeft size={25} color="#FFF" />
